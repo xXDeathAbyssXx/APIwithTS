@@ -1,0 +1,20 @@
+{
+  "name": "backendrbhell",
+  "version": "1.0.0",
+  "description": "RbxHellBackend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xXDeathAbyssXx/BackendTypescriptWithNodeAndMondoDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xXDeathAbyssXx/BackendTypescriptWithNodeAndMondoDB/issues"
+  },
+  "homepage": "https://github.com/xXDeathAbyssXx/BackendTypescriptWithNodeAndMondoDB#readme"
+}
