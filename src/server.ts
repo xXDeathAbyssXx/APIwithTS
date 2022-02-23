@@ -1,6 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import indexRoutes from './routers/indexRouters';
+import mongoose from 'mongoose';
 
 class Server {
     public app: express.Application;
@@ -11,13 +13,16 @@ class Server {
     }
 
     config(){
+    //MongoDB
+    
+    //Backend Settings
     this.app.set('port', process.env.PORT || 3000);
     this.app.use(morgan('dev'));
     this.app.use(helmet());
     }
 
     routers() {
-    this.app.get('/', (req, res) => res.send('Hi uwu'))
+    this.app.use(indexRoutes);
     }
 
     start() {
