@@ -13,7 +13,7 @@ class Server {
         this.app.set('port', process.env.PORT || 3000);
     }
     routers() {
-        this.app.listen(this.app.get('port'), () => console.log('Server On Port', this.app.get('port')));
+        this.app.listen(this.app.get('port'), () => console.log('Server On'));
     }
     start() {
     }

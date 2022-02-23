@@ -12,13 +12,15 @@ class Server {
     }
 
     routers() {
-    this.app.listen(this.app.get('port'), () => console.log('Server On'));
+    
     }
 
     start() {
-
+    this.app.listen(this.app.get('port'), () => console.log('Server On'));
     }
 }
 
 const server = new Server();
 server.start();
+
+
