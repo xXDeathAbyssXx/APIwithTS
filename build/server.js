@@ -10,6 +10,7 @@ class Server {
     constructor() {
         this.app = (0, express_1.default)();
         this.config();
+        this.routers();
     }
     config() {
         this.app.set('port', process.env.PORT || 3000);
@@ -17,6 +18,7 @@ class Server {
         this.app.use((0, helmet_1.default)());
     }
     routers() {
+        this.app.get('/', (req, res) => res.send('Hi uwu'));
     }
     start() {
         this.app.listen(this.app.get('port'), () => console.log('Server On Port: ' + this.app.get('port')));

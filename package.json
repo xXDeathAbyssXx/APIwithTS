@@ -1,7 +1,7 @@
 {
-  "name": "backendrbhell",
+  "name": "BackendTypeScriptWithNodeAndMongoDB",
   "version": "1.0.0",
-  "description": "RbxHellBackend",
+  "description": "BackendTypeScriptWithNodeAndMongoDB",
   "main": "index.js",
   "scripts": {
     "t": "tsc -w",

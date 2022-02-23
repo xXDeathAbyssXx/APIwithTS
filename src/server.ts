@@ -7,6 +7,7 @@ class Server {
     constructor() {
     this.app = express()
     this.config();
+    this.routers();
     }
 
     config(){
@@ -16,7 +17,7 @@ class Server {
     }
 
     routers() {
-    
+    this.app.get('/', (req, res) => res.send('Hi uwu'))
     }
 
     start() {
