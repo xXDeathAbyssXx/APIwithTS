@@ -8,7 +8,7 @@ class IndexRouters {
     }
 
     routes(){
-    this.router.get('/', (req, res) => res.send('Hi uwu'))
+    this.router.get('/', (req, res) => res.send('Api: /register/users_here'));
     }
 }
 
