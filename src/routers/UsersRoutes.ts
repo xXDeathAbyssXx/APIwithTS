@@ -10,17 +10,18 @@ class UsersRoutes{
     this.routes();
     }
 
-    async getAllRes(req: Request, res: Response) {
+    public async getAllRes(req: Request, res: Response): Promise<void> {
     //HERE AXIOS
     const Users = await RegisterUserDB.find();
     res.json(Users);
     }
 
-    getRes(req: Request, res: Response) {
-
+    public async getRes(req: Request, res: Response): Promise<void> {
+    const resuser = await RegisterUserDB.findOne({username: req.params.username})
+    res.json(resuser)
     }
 
-    async createRes(req: Request, res: Response) {
+    public async createRes(req: Request, res: Response): Promise<void> {
     const {username, balance, offers, reffered,inviter} = req.body;
     const newReg = new RegisterUserDB({username, balance, offers, reffered,inviter});
     await newReg.save();
@@ -28,12 +29,16 @@ class UsersRoutes{
     
     }
   
-    updateRes(){
-
+    public async updateRes(req:Request, res: Response): Promise<void>{
+    const {username} = req.params;
+    const updateuser = await RegisterUserDB.findOneAndUpdate({username}, req.body, {new: true})
+    res.json(updateuser)
     }
 
-    deleteRes(){
-
+    public async deleteRes(req: Request, res: Response): Promise<void> {
+    const {username} = req.params;
+    const deleteuser = await RegisterUserDB.findOneAndDelete({username})
+    res.json(deleteuser)
     }
 
     routes(){
