@@ -1,5 +1,7 @@
 import {Request, Response, Router} from 'express';
+import mongoose from 'mongoose';
 import RegisterUserDB from '../models/Registers';
+
 
 class UsersRoutes{
     router: Router;
@@ -8,12 +10,21 @@ class UsersRoutes{
     this.routes();
     }
 
-    getRes(req: Request, res: Response) {
+    async getAllRes(req: Request, res: Response) {
     //HERE AXIOS
-    res.send('Testing')
+    const Users = await RegisterUserDB.find();
+    res.json(Users);
     }
 
-    createRes(){
+    getRes(req: Request, res: Response) {
+
+    }
+
+    async createRes(req: Request, res: Response) {
+    const {username, balance, offers, reffered,inviter} = req.body;
+    const newReg = new RegisterUserDB({username, balance, offers, reffered,inviter});
+    await newReg.save();
+    res.json({newReg});
     
     }
   
@@ -26,7 +37,7 @@ class UsersRoutes{
     }
 
     routes(){
-    this.router.get('/', this.getRes);
+    this.router.get('/', this.getAllRes);
     this.router.get('/:username', this.getRes);
     this.router.post('/', this.createRes);
     this.router.put('/:username', this.updateRes);

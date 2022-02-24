@@ -11,6 +11,7 @@ const UsersRoutes_1 = __importDefault(require("./routers/UsersRoutes"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
+require("dotenv").config();
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -19,8 +20,8 @@ class Server {
     }
     config() {
         //MongoDB
-        const user = process.env.userdb;
-        const pass = process.env.passworddb;
+        const user = process.env.USERDB;
+        const pass = process.env.PASSWORDDB;
         mongoose_1.default.connect(`mongodb+srv://` + user + `:` + pass +
             `@cluster0.pmfuk.mongodb.net/Data?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
